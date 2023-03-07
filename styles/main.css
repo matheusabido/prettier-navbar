@@ -1,0 +1,117 @@
+:root {
+    --header-content-width: 95%;
+}
+
+* {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: rgb(230, 230, 230);
+}
+
+header {
+    position: relative;
+}
+
+.header-content {
+    position: relative;
+    z-index: 2;
+    background-color: #202020;
+    width: 100vw;
+    padding: .5rem 0;
+}
+
+.header-content div {
+    width: var(--header-content-width);
+    margin: 0 auto;
+}
+
+header a {
+    position: relative;
+    color: white;
+    text-decoration: none;
+}
+
+.links {
+    z-index: 2;
+    position: absolute;
+    display: flex;
+    gap: 1rem;
+    right: calc((100% - var(--header-content-width)) / 2);
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.links a::after {
+    width: 0;
+    content: '';
+    position: absolute;
+    background-color: #fff;
+    height: 1px;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+    transition: width .3s ease-in-out;
+}
+
+.links a:hover::after {
+    width: 100%;
+}
+
+.hamburguer-wrapper {
+    display: none;
+}
+
+@media (max-width: 500px) {
+    .links {
+        right: unset;
+        top: unset;
+        z-index: 1;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #202020;
+        bottom: 0;
+        left: 50%;
+        width: 100vw;
+        padding: 1rem 0;
+        transform: translate(-50%, 0%);
+        transition: transform .4s ease-in-out;
+    }
+
+    header[data-active="1"] .links {
+        transform: translate(-50%, 100%);
+    }
+    
+    .hamburguer-wrapper {
+        cursor: pointer;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        z-index: 2;
+        right: calc((100% - var(--header-content-width)) / 2);
+        top: 50%;
+        transform: translate(0, -50%);
+        filter: invert();
+    }
+
+    .hamburguer-wrapper img {
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+    }
+
+    .hamburguer-wrapper img:focus {
+        outline: none !important;
+    }
+
+    header[data-active="0"] .close {
+        display: none;
+    }
+
+    header[data-active="1"] .open {
+        display: none;
+    }
+}
