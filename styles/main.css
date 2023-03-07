@@ -97,21 +97,39 @@ header a {
         filter: invert();
     }
 
-    .hamburguer-wrapper img {
+    .hamburguer-wrapper {
         user-select: none;
         -moz-user-select: none;
         -webkit-user-select: none;
+        -webkit-touch-callout: none;
+        -webkit-tap-highlight-color: transparent;
     }
 
     .hamburguer-wrapper img:focus {
         outline: none !important;
     }
 
-    header[data-active="0"] .close {
-        display: none;
+    .open {
+        position: absolute;
+        opacity: 1;
+        transform: translate(-50%, -50%);
+        transition: all .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .close {
+        position: absolute;
+        opacity: 0;
+        transform: translate(-50%, -50%) rotate(45deg);
+        transition: all .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
     header[data-active="1"] .open {
-        display: none;
+        opacity: 0;
+        transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    header[data-active="1"] .close {
+        opacity: 1;
+        transform: translate(-50%, -50%);
     }
 }
