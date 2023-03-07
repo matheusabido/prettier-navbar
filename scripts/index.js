@@ -1,2 +1,2 @@
 const header = document.querySelector('header')
-header.onclick = () => header.dataset.active = +!~~header.dataset.active
+document.querySelector('.hamburguer-wrapper').onclick = () => header.dataset.active = +!~~header.dataset.active
