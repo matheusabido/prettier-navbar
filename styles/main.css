@@ -104,15 +104,15 @@ header[data-active="1"] .close {
         align-items: center;
         background-color: #202020;
         bottom: 0;
-        left: 50%;
+        left: 0;
         width: 100vw;
         padding: 1rem 0;
-        transform: translate(-50%, 0%);
-        transition: transform .4s ease-in-out;
+        transform: translate(0, 0);
+        transition: transform .3s ease-in-out;
     }
 
     header[data-active="1"] .links {
-        transform: translate(-50%, 100%);
+        transform: translate(0, 100%);
     }
     
     .hamburguer-wrapper {
